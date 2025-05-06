@@ -1,7 +1,14 @@
 import express from "express";
 import isLoggedIn from "../middlewares/auth.middlewares.js";
 import checkAdmin from "../middlewares/checkAdmin.middlewares.js";
-import { createProblem, deleteProblem, getAllProblems, getAllProblemsSolvedByUser, getProblemById, updateProblemById } from "../controllers/problem.controllers.js";
+import {
+  createProblem,
+  deleteProblem,
+  getAllProblems,
+  getAllProblemsSolvedByUser,
+  getProblemById,
+  updateProblemById,
+} from "../controllers/problem.controllers.js";
 
 const problemRoutes = express.Router();
 problemRoutes.post("/create-problem", isLoggedIn, checkAdmin, createProblem);

@@ -31,7 +31,7 @@ export const pollBatchResults = async (tokens) => {
     const isAllDone = results.every(
       (r) => r.status.id !== 1 && r.status.id !== 2
     );
-   
+
     if (isAllDone) return results;
 
     await sleep(1000);
@@ -44,4 +44,14 @@ export const submitBatch = async (submissions) => {
   );
 
   return data; // [{token},{token},{token}]
+};
+
+export const getLanguageName = (language) => {
+  const getLanguage = {
+    74: "Typescript",
+    63: "Javascript",
+    71: "Python",
+    62: "Java",
+  };
+  return getLanguage[language] || "Unknown";
 };

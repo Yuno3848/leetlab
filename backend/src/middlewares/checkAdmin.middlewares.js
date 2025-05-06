@@ -4,7 +4,7 @@ const checkAdmin = async (req, res, next) => {
   try {
     const userId = req.user.id;
     console.log({
-      "check admin middleware req.user": req.user,
+      "check admin middleware req.user(line no.7)": req.user,
     });
 
     const user = await db.user.findUnique({
@@ -21,7 +21,7 @@ const checkAdmin = async (req, res, next) => {
         message: "Access denied - Admins Only",
       });
     }
-
+    req.user = { ...user, userId };
     console.log({
       "check admin middleware req.user (line no.28)": req.user,
     });
